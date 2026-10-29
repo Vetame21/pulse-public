@@ -1,0 +1,7 @@
+# Netlify detects Next.js automatically and uses its Next.js runtime.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"

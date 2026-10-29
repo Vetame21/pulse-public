@@ -1,0 +1,102 @@
+/* Hallmark · macrostructure: Today front page · tone: calm editorial · anchor hue: deep green (preserved) */
+@import "tailwindcss";
+
+/* Design tokens: calm, neutral surfaces with one deep-green accent. */
+:root {
+  --background: #f6f7f5;
+  --surface: #ffffff;
+  --foreground: #121614;
+  --muted: #5f6b66;
+  --line: #e3e7e4;
+  --accent: #0f6b4f;
+  --on-accent: #ffffff;
+  --accent-soft: #e3f1ec;
+  --warning: #9a6700;
+  --warning-soft: #fdf3dc;
+  --danger: #b42318;
+  --danger-soft: #fdecea;
+  --track: #e9ece9;
+  --chart: #0b7a56; /* validated: chroma & lightness band vs #ffffff */
+  /* Calendar heat ramp: green (well under the daily allowance) to dark red (far over), same in both themes */
+  --heat-1: #5fb576;
+  --heat-2: #c9c552;
+  --heat-3: #ee9a3a;
+  --heat-4: #c43f2c;
+  --heat-5: #7f1d1d;
+  --heat-ink-low: #121614;
+  --heat-ink-high: #ffffff;
+  --shadow-card: 0 1px 2px rgb(16 24 20 / 0.04), 0 4px 16px rgb(16 24 20 / 0.04);
+  color-scheme: light;
+}
+
+/* Dark mode: follows the phone's setting unless you pick Light or Dark in Settings
+   (Settings sets data-theme on <html>). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #0e1110;
+    --surface: #161a18;
+    --foreground: #e9eeeb;
+    --muted: #93a19a;
+    --line: #262d2a;
+    --accent: #3fbf8f;
+    --on-accent: #06281c;
+    --accent-soft: #12332a;
+    --warning: #e9b949;
+    --warning-soft: #33280f;
+    --danger: #f97066;
+    --danger-soft: #3a1714;
+    --track: #232a27;
+    --chart: #2fa97a; /* validated vs #161a18 */
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --background: #0e1110;
+  --surface: #161a18;
+  --foreground: #e9eeeb;
+  --muted: #93a19a;
+  --line: #262d2a;
+  --accent: #3fbf8f;
+  --on-accent: #06281c;
+  --accent-soft: #12332a;
+  --warning: #e9b949;
+  --warning-soft: #33280f;
+  --danger: #f97066;
+  --danger-soft: #3a1714;
+  --track: #232a27;
+  --chart: #2fa97a; /* validated vs #161a18 */
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-track: var(--track);
+  --color-chart: var(--chart);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --shadow-card: var(--shadow-card);
+  --font-sans: var(--font-geist-sans), "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Large money figures line up digit by digit. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
